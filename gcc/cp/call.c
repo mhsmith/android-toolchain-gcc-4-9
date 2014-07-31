@@ -4040,8 +4040,9 @@ build_operator_new_call (tree fnname, vec<tree, va_gc> **args,
   if (size_check != NULL_TREE)
     {
       tree errval = TYPE_MAX_VALUE (sizetype);
-      /* ANDROID - temporarily disable __cxa_throw_bad_array_new_length call. */
-      if (cxx_dialect >= cxx11 && flag_exceptions && 0)
+      if (cxx_dialect >= cxx11 && flag_exceptions
+          /* ANDROID - temporarily disable __cxa_throw_bad_array_new_length call. */
+          && !TARGET_ANDROID)
 	errval = throw_bad_array_new_length ();
       *size = fold_build3 (COND_EXPR, sizetype, size_check,
 			   original_size, errval);
@@ -5763,8 +5764,22 @@ build_op_delete_call (enum tree_code code, tree addr, tree size,
 	       usual deallocation function."
 
 	       So (void*) beats (void*, size_t).  */
-	    if (FUNCTION_ARG_CHAIN (fn) == void_list_node)
-	      break;
+            /* If type is not void, pick (void*, size_t) version (which comes
+               first).  */
+	    if (!flag_sized_delete || TREE_CODE (type) == VOID_TYPE )
+              {
+                /* If -fsized-delete is not passed or if a void * is deleted,
+                   prefer delete (void *) version.  */
+                if (FUNCTION_ARG_CHAIN (fn) == void_list_node)
+                  break;
+              }
+            else
+              {
+                /* If -fsized-delete is passed and it is not a void *,
+                   prefer delete (void *, size_t) version.  */
+                if (FUNCTION_ARG_CHAIN (fn) != void_list_node)
+                  break;
+              }
 	  }
       }
 
@@ -9262,6 +9277,9 @@ make_temporary_var_for_ref_to_temp (tree decl, tree type)
       tree name;
 
       TREE_STATIC (var) = TREE_STATIC (decl);
+      /* Capture the current module info for statics.  */
+      if (L_IPO_COMP_MODE && TREE_STATIC (var))
+        varpool_node_for_decl (var);
       DECL_TLS_MODEL (var) = DECL_TLS_MODEL (decl);
       name = mangle_ref_init_variable (decl);
       DECL_NAME (var) = name;

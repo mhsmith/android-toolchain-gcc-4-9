@@ -317,6 +317,11 @@
 	* gfortran.dg/default_format_denormal_2.f90:  Remove xfail for
 	powerpc*-*-linux*.
 
+2014-06-24  Cong Hou  <congh@google.com>
+
+	* gcc.dg/vect/vect-reduc-sad.c: New.
+	* lib/target-supports.exp (check_effective_target_vect_usad_char): New.
+
 2014-06-23  Alan Modra  <amodra@gmail.com>
 
 	* gcc.dg/pr61583.c: New.

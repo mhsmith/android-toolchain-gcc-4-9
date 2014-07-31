@@ -33,7 +33,9 @@ along with GCC; see the file COPYING3.  If not see
 #include "target.h"
 #include "output.h"
 #include "gimple-expr.h"
+#include "toplev.h"
 #include "flags.h"
+#include "l-ipo.h"
 #include "pointer-set.h"
 
 /* List of hooks triggered on varpool_node events.  */
@@ -134,11 +136,11 @@ varpool_call_variable_insertion_hooks (varpool_node *node)
 
 varpool_node *
 varpool_create_empty_node (void)
-{   
+{
   varpool_node *node = ggc_alloc_cleared_varpool_node ();
   node->type = SYMTAB_VARIABLE;
   return node;
-}   
+}
 
 /* Return varpool node assigned to DECL.  Create new one when needed.  */
 varpool_node *
@@ -150,6 +152,7 @@ varpool_node_for_decl (tree decl)
     return node;
 
   node = varpool_create_empty_node ();
+  node->module_id = current_module_id;
   node->decl = decl;
   symtab_register_node (node);
   return node;
@@ -161,6 +164,7 @@ varpool_remove_node (varpool_node *node)
 {
   tree init;
   varpool_call_node_removal_hooks (node);
+  varpool_remove_link_node (node);
   symtab_unregister_node (node);
 
   /* Because we remove references from external functions before final compilation,
@@ -311,7 +315,9 @@ ctor_for_folding (tree decl)
 	  /* The C++ front end creates VAR_DECLs for vtables of typeinfo
 	     classes not defined in the current TU so that it can refer
 	     to them from typeinfo objects.  Avoid returning NULL_TREE.  */
-	  gcc_checking_assert (!COMPLETE_TYPE_P (DECL_CONTEXT (real_decl)));
+	  /* In LIPO mode, the DECL_CONTEXT may have been cleared.  */
+	  if (!L_IPO_COMP_MODE)
+	    gcc_checking_assert (!COMPLETE_TYPE_P (DECL_CONTEXT (real_decl)));
 	  return error_mark_node;
 	}
     }
@@ -321,7 +327,7 @@ ctor_for_folding (tree decl)
     return error_mark_node;
 
   /* Non-readonly alias of readonly variable is also de-facto readonly,
-     because the variable itself is in readonly section.  
+     because the variable itself is in readonly section.
      We also honnor READONLY flag on alias assuming that user knows
      what he is doing.  */
   if (!TREE_READONLY (decl) && !TREE_READONLY (real_decl))
@@ -335,7 +341,7 @@ ctor_for_folding (tree decl)
     return error_mark_node;
 
   /* Variables declared `const' with an initializer are considered
-     to not be overwritable with different initializer by default. 
+     to not be overwritable with different initializer by default.
 
      ??? Previously we behaved so for scalar variables but not for array
      accesses.  */
@@ -473,7 +479,7 @@ varpool_assemble_decl (varpool_node *node)
   return false;
 }
 
-/* Add NODE to queue starting at FIRST. 
+/* Add NODE to queue starting at FIRST.
    The queue is linked via AUX pointers and terminated by pointer to 1.  */
 
 static void
@@ -515,7 +521,7 @@ varpool_remove_unreferenced_decls (void)
 	{
 	  enqueue_node (node, &first);
           if (cgraph_dump_file)
-	    fprintf (cgraph_dump_file, " %s", node->asm_name ());
+	    fprintf (cgraph_dump_file, " %s/%d", node->asm_name (), node->order);
 	}
     }
   while (first != (varpool_node *)(void *)1)
@@ -556,7 +562,7 @@ varpool_remove_unreferenced_decls (void)
       if (!node->aux)
 	{
           if (cgraph_dump_file)
-	    fprintf (cgraph_dump_file, " %s", node->asm_name ());
+	    fprintf (cgraph_dump_file, " %s/%d", node->asm_name (), node->order);
 	  if (pointer_set_contains (referenced, node))
 	    varpool_remove_initializer (node);
 	  else
@@ -674,7 +680,7 @@ varpool_extra_name_alias (tree alias, tree decl)
   return alias_node;
 }
 
-/* Call calback on NODE and aliases associated to NODE. 
+/* Call calback on NODE and aliases associated to NODE.
    When INCLUDE_OVERWRITABLE is false, overwritable aliases and thunks are
    skipped. */
 

@@ -1,6 +1,46 @@
 2014-07-16  Release Manager
 
 	* GCC 4.9.1 released.
+2014-07-11  Rong Xu  <xur@google.com>
+
+	Backport r212462 trunk.
+
+	* gcov-tool.c (gcov_output_files): Fix build error introduced in
+	commit r212448.
+
+2014-07-10  Rong Xu  <xur@google.com>
+
+	Backport r212448 from trunk.
+
+	Add gcov-tool: an offline gcda profile processing tool
+	Support.
+	* gcov-io.c (gcov_position): Make avaialble to gcov-tool.
+	(gcov_is_error): Ditto.
+	(gcov_read_string): Ditto.
+	(gcov_read_sync): Ditto.
+	* gcov-io.h: Move counter defines to gcov-counter.def.
+	* gcov-dump.c (tag_counters): Use gcov-counter.def.
+	* coverage.c: Ditto.
+	* gcov-tool.c: Offline gcda profile processing tool.
+	(unlink_gcda_file): Remove one gcda file.
+	(unlink_profile_dir): Remove gcda files from the profile path.
+	(gcov_output_files): Output gcda files to an output dir.
+	(profile_merge): Merge two profiles in directory.
+	(print_merge_usage_message): Print merge usage.
+	(merge_usage): Print merge usage and exit.
+	(do_merge): Driver for profile merge sub-command.
+	(profile_rewrite): Rewrite profile.
+	(print_rewrite_usage_message): Print rewrite usage.
+	(rewrite_usage): Print rewrite usage and exit.
+	(do_rewrite): Driver for profile rewrite sub-command.
+	(print_usage): Print gcov-info usage and exit.
+	(print_version): Print gcov-info version.
+	(process_args): Process arguments.
+	(main): Main routine for gcov-tool.
+	* Makefile.in: Build and install gcov-tool.
+	* gcov-counter.def: New file split from gcov-io.h.
+	* doc/gcc.texi: Include gcov-tool.texi.
+	* doc/gcov-tool.texi: Document for gcov-tool.
 
 2014-07-10  Cary Coutant  <ccoutant@google.com>
 
@@ -373,6 +413,32 @@
 	* ipa-prop.h (ipa_impossible_devirt_target): Declare.
 	* ipa-cp.c (ipa_get_indirect_edge_target_1): Use
 	ipa_impossible_devirt_target.
+
+2014-06-25  Cong Hou  <congh@google.com>
+
+	* tree-vectorizer.h: Fixing incorrect number of patterns.
+
+2014-06-24  Cong Hou  <congh@google.com>
+
+	* tree-vect-patterns.c (vect_recog_sad_pattern): New function for SAD
+	pattern recognition.
+	(type_conversion_p): PROMOTION is true if it's a type promotion
+	conversion, and false otherwise.  Return true if the given expression
+	is a type conversion one.
+	* tree-vectorizer.h: Adjust the number of patterns.
+	* tree.def: Add SAD_EXPR.
+	* optabs.def: Add sad_optab.
+	* cfgexpand.c (expand_debug_expr): Add SAD_EXPR case.
+	* expr.c (expand_expr_real_2): Likewise.
+	* gimple-pretty-print.c (dump_ternary_rhs): Likewise.
+	* gimple.c (get_gimple_rhs_num_ops): Likewise.
+	* optabs.c (optab_for_tree_code): Likewise.
+	* tree-cfg.c (estimate_operator_cost): Likewise.
+	* tree-ssa-operands.c (get_expr_operands): Likewise.
+	* tree-vect-loop.c (get_initial_def_for_reduction): Likewise.
+	* config/i386/sse.md: Add SSE2 and AVX2 expand for SAD.
+	* doc/generic.texi: Add document for SAD_EXPR.
+	* doc/md.texi: Add document for ssad and usad.
 
 2014-06-24  Jakub Jelinek  <jakub@redhat.com>
 

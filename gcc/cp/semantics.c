@@ -2620,10 +2620,16 @@ finish_compound_literal (tree type, tree compound_literal,
       decl = pushdecl_top_level (decl);
       DECL_NAME (decl) = make_anon_name ();
       SET_DECL_ASSEMBLER_NAME (decl, DECL_NAME (decl));
+
+      /* Capture the current module info for statics.  */
+      if (L_IPO_COMP_MODE)
+        varpool_node_for_decl (decl);
+
       /* Make sure the destructor is callable.  */
       tree clean = cxx_maybe_build_cleanup (decl, complain);
       if (clean == error_mark_node)
 	return error_mark_node;
+
       return decl;
     }
   else
@@ -3924,6 +3930,18 @@ emit_associated_thunks (tree fn)
       && ! DECL_REALLY_EXTERN (fn))
     {
       tree thunk;
+
+      if (L_IPO_COMP_MODE)
+        {
+          /* In LIPO mode, multiple copies of definitions for the same function
+             may exist, but assembler hash table keeps only one copy which might
+             have been deleted at this point.  */
+          struct cgraph_node *n = cgraph_get_create_node (fn);
+	  #ifdef FIXME_LIPO
+          insert_to_assembler_name_hash ((symtab_node)n);
+	  #endif
+          cgraph_link_node (n);
+        }
 
       for (thunk = DECL_THUNKS (fn); thunk; thunk = DECL_CHAIN (thunk))
 	{
@@ -7964,6 +7982,15 @@ cx_check_missing_mem_inits (tree fun, tree body, bool complain)
     }
 
   return bad;
+}
+
+/* Clear constexpr hash table  */
+
+void
+cp_clear_constexpr_hashtable (void)
+{
+  /* htab_delete (constexpr_fundef_table); */
+  constexpr_fundef_table = NULL;
 }
 
 /* We are processing the definition of the constexpr function FUN.

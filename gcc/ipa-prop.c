@@ -56,6 +56,7 @@ along with GCC; see the file COPYING3.  If not see
 #include "data-streamer.h"
 #include "tree-streamer.h"
 #include "params.h"
+#include "l-ipo.h"
 #include "ipa-utils.h"
 #include "stringpool.h"
 #include "tree-ssanames.h"
@@ -1618,7 +1619,20 @@ ipa_compute_jump_functions_for_edge (struct param_analysis_info *parms_ainfo,
       tree param_type = ipa_get_callee_param_type (cs, n);
 
       if (is_gimple_ip_invariant (arg))
-	ipa_set_jf_constant (jfunc, arg, cs);
+        {
+          if (L_IPO_COMP_MODE && TREE_CODE (arg) == ADDR_EXPR
+              && TREE_CODE (TREE_OPERAND (arg, 0)) == FUNCTION_DECL)
+            {
+              tree fdecl = TREE_OPERAND (arg, 0);
+	      tree real_fdecl = cgraph_lipo_get_resolved_node (fdecl)->decl;
+              if (fdecl != real_fdecl)
+                {
+                  arg = unshare_expr (arg);
+		  TREE_OPERAND (arg, 0) = real_fdecl;
+		}
+            }
+          ipa_set_jf_constant (jfunc, arg, cs);
+        }
       else if (!is_gimple_reg_type (TREE_TYPE (arg))
 	       && TREE_CODE (arg) == PARM_DECL)
 	{
@@ -2737,7 +2751,10 @@ try_make_edge_direct_virtual_call (struct cgraph_edge *ie,
 {
   tree binfo, target;
 
-  if (!flag_devirtualize)
+  if (!flag_devirtualize
+      /* FIXME_LIPO -- LIPO is not yet compatible
+         with ipa devirt. */
+      || flag_dyn_ipa)
     return NULL;
 
   /* First try to do lookup via known virtual table pointer value.  */

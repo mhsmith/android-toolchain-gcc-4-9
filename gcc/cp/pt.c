@@ -43,8 +43,10 @@ along with GCC; see the file COPYING3.  If not see
 #include "tree-inline.h"
 #include "decl.h"
 #include "toplev.h"
+#include "opts.h"
 #include "timevar.h"
 #include "tree-iterator.h"
+#include "cgraph.h"
 #include "type-utils.h"
 #include "gimplify.h"
 
@@ -62,6 +64,13 @@ struct GTY ((chain_next ("%h.next"))) pending_template {
 
 static GTY(()) struct pending_template *pending_templates;
 static GTY(()) struct pending_template *last_pending_template;
+
+void
+clear_pending_templates (void)
+{
+  pending_templates = NULL;
+  last_pending_template = NULL;
+}
 
 int processing_template_parmlist;
 static int template_header_count;
@@ -14194,11 +14203,7 @@ tsubst_copy_and_build (tree t,
 	if (error_msg)
 	  error (error_msg);
 	if (!function_p && identifier_p (decl))
-	  {
-	    if (complain & tf_error)
-	      unqualified_name_lookup_error (decl);
-	    decl = error_mark_node;
-	  }
+	  decl = unqualified_name_lookup_error (decl);
 	RETURN (decl);
       }
 
@@ -19781,7 +19786,13 @@ instantiate_decl (tree d, int defer_ok,
 	 when marked as "extern template".  */
       if (!(external_p && VAR_P (d)))
 	add_pending_template (d);
-      goto out;
+      {
+        if (L_IPO_COMP_MODE)
+          /* Capture module info.  */
+          if (TREE_CODE (d) == VAR_DECL)
+            varpool_node_for_decl (d);
+        goto out;
+      }
     }
   /* Tell the repository that D is available in this translation unit
      -- and see if it is supposed to be instantiated here.  */

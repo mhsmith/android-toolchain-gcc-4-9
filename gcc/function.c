@@ -61,6 +61,7 @@ along with GCC; see the file COPYING3.  If not see
 #include "tree-pass.h"
 #include "predict.h"
 #include "df.h"
+#include "l-ipo.h"
 #include "params.h"
 #include "bb-reorder.h"
 
@@ -4470,10 +4471,27 @@ pop_cfun (void)
 }
 
 /* Return value of funcdef and increase it.  */
+
 int
 get_next_funcdef_no (void)
 {
   return funcdef_no++;
+}
+
+/* Restore funcdef_no to FN.  */
+
+void
+set_funcdef_no (int fn)
+{
+  funcdef_no = fn;
+}
+
+/* Reset the funcdef number.  */
+
+void
+reset_funcdef_no (void)
+{
+  funcdef_no = 0;
 }
 
 /* Return value of funcdef.  */
@@ -4517,6 +4535,7 @@ allocate_struct_function (tree fndecl, bool abstract_p)
       DECL_STRUCT_FUNCTION (fndecl) = cfun;
       cfun->decl = fndecl;
       current_function_funcdef_no = get_next_funcdef_no ();
+      cfun->module_id = current_module_id;
     }
 
   invoke_set_current_function_hook (fndecl);
