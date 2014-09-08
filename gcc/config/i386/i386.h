@@ -425,6 +425,10 @@ extern unsigned char ix86_tune_features[X86_TUNE_LAST];
 	ix86_tune_features[X86_TUNE_USE_VECTOR_FP_CONVERTS]
 #define TARGET_USE_VECTOR_CONVERTS \
 	ix86_tune_features[X86_TUNE_USE_VECTOR_CONVERTS]
+#define TARGET_SLOW_PSHUFB \
+	ix86_tune_features[X86_TUNE_SLOW_PSHUFB]
+#define TARGET_VECTOR_PARALLEL_EXECUTION \
+	ix86_tune_features[X86_TUNE_VECTOR_PARALLEL_EXECUTION]
 #define TARGET_FUSE_CMP_AND_BRANCH_32 \
 	ix86_tune_features[X86_TUNE_FUSE_CMP_AND_BRANCH_32]
 #define TARGET_FUSE_CMP_AND_BRANCH_64 \
@@ -457,6 +461,8 @@ extern unsigned char ix86_tune_features[X86_TUNE_LAST];
 	ix86_tune_features[X86_TUNE_SPLIT_MEM_OPND_FOR_FP_CONVERTS]
 #define TARGET_ADJUST_UNROLL \
     ix86_tune_features[X86_TUNE_ADJUST_UNROLL]
+#define TARGET_AVOID_FALSE_DEP_FOR_BMI \
+	ix86_tune_features[X86_TUNE_AVOID_FALSE_DEP_FOR_BMI]
 
 /* Feature tests against the various architecture variations.  */
 enum ix86_arch_indices {
