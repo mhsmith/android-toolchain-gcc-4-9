@@ -23,6 +23,7 @@
     do {							\
 	if (TARGET_ANDROID)					\
 	  builtin_define ("__ANDROID__");			\
+      builtin_define ("__CRYSTAX__"); \
     } while (0)
 
 #if ANDROID_DEFAULT
@@ -50,6 +51,9 @@
 
 #define ANDROID_ASM_SPEC \
   "--noexecstack"
+
+#define CRYSTAX_LIB_SPEC \
+  "%{!static: -Bstatic -lcrystax -Bdynamic}"
 
 #define ANDROID_LIB_SPEC \
   "%{!static: -ldl}"
