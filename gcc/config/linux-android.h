@@ -53,7 +53,8 @@
   "--noexecstack"
 
 #define CRYSTAX_LIB_SPEC \
-  "%{!static: -Bstatic -lcrystax -Bdynamic}"
+  "%{static: -lcrystax -lm} " \
+  "%{!static: -Bstatic -lcrystax -Bdynamic -lm}"
 
 #define ANDROID_LIB_SPEC \
   "%{!static: -ldl}"
