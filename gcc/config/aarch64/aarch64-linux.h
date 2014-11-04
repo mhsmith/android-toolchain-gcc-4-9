@@ -30,7 +30,7 @@
 
 #define CPP_SPEC "%{pthread:-D_REENTRANT}"
 
-#define LINUX_TARGET_LINK_SPEC  "%{h*}		\
+#define LINUX_TARGET_LINK_SPEC0  "%{h*}		\
    %{static:-Bstatic}				\
    %{shared:-shared}				\
    %{symbolic:-Bsymbolic}			\
@@ -39,6 +39,16 @@
    -X						\
    %{mbig-endian:-EB} %{mlittle-endian:-EL}     \
    -maarch64linux%{mbig-endian:b}"
+
+#ifdef TARGET_FIX_ERR_A53_835769_DEFAULT
+#define CA53_ERR_835769_SPEC \
+  " %{!mno-fix-cortex-a53-835769:--fix-cortex-a53-835769}"
+#else
+#define CA53_ERR_835769_SPEC \
+  " %{mfix-cortex-a53-835769:--fix-cortex-a53-835769}"
+#endif
+
+#define LINUX_TARGET_LINK_SPEC LINUX_TARGET_LINK_SPEC0 CA53_ERR_835769_SPEC
 
 #define LINK_SPEC LINUX_TARGET_LINK_SPEC
 
