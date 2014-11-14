@@ -1,3 +1,7 @@
+2014-10-30  Release Manager
+
+	* GCC 4.9.2 released.
+
 2014-07-16  Release Manager
 
 	* GCC 4.9.1 released.
@@ -218,12 +222,6 @@
 2011-10-21  Marc Glisse  <marc.glisse@inria.fr>
 
 	* ansidecl.h (ENUM_BITFIELD): Always use enum in C++
-
-2012-01-26  Cary Coutant  <ccoutant@google.com>
-
-	* include/dwarf2.h (enum dwarf_form): Update Fission extensions, add
-	wiki reference.
-	(enum dwarf_attribute): Likewise.
 
 2011-09-28  Doug Evans  <dje@google.com>
 
