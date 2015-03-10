@@ -983,7 +983,6 @@ dr_analyze_indices (struct data_reference *dr, loop_p nest, loop_p loop)
 	  ref = fold_build2_loc (EXPR_LOCATION (ref),
 				 MEM_REF, TREE_TYPE (ref),
 				 base, memoff);
-	  DR_UNCONSTRAINED_BASE (dr) = true;
 	  MR_DEPENDENCE_CLIQUE (ref) = MR_DEPENDENCE_CLIQUE (old);
 	  MR_DEPENDENCE_BASE (ref) = MR_DEPENDENCE_BASE (old);
 	  access_fns.safe_push (access_fn);
