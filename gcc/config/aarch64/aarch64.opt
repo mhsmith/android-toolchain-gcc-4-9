@@ -72,7 +72,7 @@ Target Report Var(aarch64_fix_a53_err835769) Init(2)
 Workaround for ARM Cortex-A53 Erratum number 835769
 
 mfix-cortex-a53-843419
-Target Report Var(aarch64_fix_a53_err843419) Init(2)
+Target Report
 Workaround for ARM Cortex-A53 Erratum number 843419
 
 mlittle-endian
