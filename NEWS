@@ -6,29 +6,33 @@ see ONEWS.
 
 ======================================================================
 http://gcc.gnu.org/gcc-4.9/index.html
+
                              GCC 4.9 Release Series
 
-   June 26, 2015
+   Aug 3, 2016
 
    The [1]GNU project and the GCC developers are pleased to announce the
-   release of GCC 4.9.3.
+   release of GCC 4.9.4.
 
    This release is a bug-fix release, containing fixes for regressions in
-   GCC 4.9.2 relative to previous releases of GCC.
+   GCC 4.9.3 relative to previous releases of GCC.
 
 Release History
 
+   GCC 4.9.4
+          Aug 3, 2016 ([2]changes, [3]documentation)
+
    GCC 4.9.3
-          June 26, 2015 ([2]changes, [3]documentation)
+          June 26, 2015 ([4]changes, [5]documentation)
 
    GCC 4.9.2
-          October 30, 2014 ([4]changes, [5]documentation)
+          October 30, 2014 ([6]changes, [7]documentation)
 
    GCC 4.9.1
-          July 16, 2014 ([6]changes, [7]documentation)
+          July 16, 2014 ([8]changes, [9]documentation)
 
    GCC 4.9.0
-          April 22, 2014 ([8]changes, [9]documentation)
+          April 22, 2014 ([10]changes, [11]documentation)
 
 References and Acknowledgements
 
@@ -36,60 +40,63 @@ References and Acknowledgements
    supports several other languages aside from C, it now stands for the
    GNU Compiler Collection.
 
-   A list of [10]successful builds is updated as new information becomes
+   A list of [12]successful builds is updated as new information becomes
    available.
 
    The GCC developers would like to thank the numerous people that have
    contributed new features, improvements, bug fixes, and other changes as
-   well as test results to GCC. This [11]amazing group of volunteers is
+   well as test results to GCC. This [13]amazing group of volunteers is
    what makes GCC successful.
 
-   For additional information about GCC please refer to the [12]GCC
-   project web site or contact the [13]GCC development mailing list.
+   For additional information about GCC please refer to the [14]GCC
+   project web site or contact the [15]GCC development mailing list.
 
-   To obtain GCC please use [14]our mirror sites or [15]our SVN server.
+   To obtain GCC please use [16]our mirror sites or [17]our SVN server.
 
 
     For questions related to the use of GCC, please consult these web
-    pages and the [16]GCC manuals. If that fails, the
-    [17]gcc-help@gcc.gnu.org mailing list might help. Comments on these
+    pages and the [18]GCC manuals. If that fails, the
+    [19]gcc-help@gcc.gnu.org mailing list might help. Comments on these
     web pages and the development of GCC are welcome on our developer
-    list at [18]gcc@gcc.gnu.org. All of [19]our lists have public
+    list at [20]gcc@gcc.gnu.org. All of [21]our lists have public
     archives.
 
-   Copyright (C) [20]Free Software Foundation, Inc. Verbatim copying and
+   Copyright (C) [22]Free Software Foundation, Inc. Verbatim copying and
    distribution of this entire article is permitted in any medium,
    provided this notice is preserved.
 
-   These pages are [21]maintained by the GCC team. Last modified
-   2015-06-26[22].
+   These pages are [23]maintained by the GCC team. Last modified
+   2016-08-03[24].
 
 References
 
    1. http://www.gnu.org/
    2. http://gcc.gnu.org/gcc-4.9/changes.html
-   3. http://gcc.gnu.org/onlinedocs/4.9.3/
+   3. http://gcc.gnu.org/onlinedocs/4.9.4/
    4. http://gcc.gnu.org/gcc-4.9/changes.html
-   5. http://gcc.gnu.org/onlinedocs/4.9.2/
+   5. http://gcc.gnu.org/onlinedocs/4.9.3/
    6. http://gcc.gnu.org/gcc-4.9/changes.html
-   7. http://gcc.gnu.org/onlinedocs/4.9.1/
+   7. http://gcc.gnu.org/onlinedocs/4.9.2/
    8. http://gcc.gnu.org/gcc-4.9/changes.html
-   9. https://gcc.gnu.org/onlinedocs/4.9.0/
-  10. http://gcc.gnu.org/gcc-4.9/buildstat.html
-  11. https://gcc.gnu.org/onlinedocs/gcc/Contributors.html
-  12. http://gcc.gnu.org/index.html
-  13. mailto:gcc@gcc.gnu.org
-  14. http://gcc.gnu.org/mirrors.html
-  15. http://gcc.gnu.org/svn.html
-  16. https://gcc.gnu.org/onlinedocs/
-  17. mailto:gcc-help@gcc.gnu.org
-  18. mailto:gcc@gcc.gnu.org
-  19. https://gcc.gnu.org/lists.html
-  20. http://www.fsf.org/
-  21. https://gcc.gnu.org/about.html
-  22. http://validator.w3.org/check/referer
+   9. http://gcc.gnu.org/onlinedocs/4.9.1/
+  10. http://gcc.gnu.org/gcc-4.9/changes.html
+  11. https://gcc.gnu.org/onlinedocs/4.9.0/
+  12. http://gcc.gnu.org/gcc-4.9/buildstat.html
+  13. https://gcc.gnu.org/onlinedocs/gcc/Contributors.html
+  14. http://gcc.gnu.org/index.html
+  15. mailto:gcc@gcc.gnu.org
+  16. http://gcc.gnu.org/mirrors.html
+  17. http://gcc.gnu.org/svn.html
+  18. https://gcc.gnu.org/onlinedocs/
+  19. mailto:gcc-help@gcc.gnu.org
+  20. mailto:gcc@gcc.gnu.org
+  21. https://gcc.gnu.org/lists.html
+  22. http://www.fsf.org/
+  23. https://gcc.gnu.org/about.html
+  24. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.9/changes.html
+
                              GCC 4.9 Release Series
                         Changes, New Features, and Fixes
 
@@ -178,10 +185,10 @@ New Languages and Language specific improvements
      * Version 4.0 of the [4]OpenMP specification is now supported in the
        C and C++ compilers and starting with the 4.9.1 release also in the
        Fortran compiler. The new -fopenmp-simd option can be used to
-       enable OpenMP's SIMD directives, while ignoring other OpenMP
+       enable OpenMP's SIMD directives while ignoring other OpenMP
        directives. The new [5]-fsimd-cost-model= option permits to tune
        the vectorization cost model for loops annotated with OpenMP and
-       Cilk Plus simd directives; -Wopenmp-simd warns when the current
+       Cilk Plus simd directives. -Wopenmp-simd warns when the current
        cost model overrides simd directives set by the user.
      * The -Wdate-time option has been added for the C, C++ and Fortran
        compilers, which warns when the __DATE__, __TIME__ or __TIMESTAMP__
@@ -203,21 +210,21 @@ New Languages and Language specific improvements
        -fdiagnostics-color=never.
        Sample diagnostics output:
     $ g++ -fdiagnostics-color=always -S -Wall test.C
-    test.C: In function ‘int foo()’:
+    test.C: In function `int foo()':
     test.C:1:14: warning: no return statement in function returning non-void [-W
 return-type]
      int foo () { }
                   ^
     test.C:2:46: error: template instantiation depth exceeds maximum of 900 (use
- -ftemplate-depth= to increase the maximum) instantiating ‘struct X<100>’
+ -ftemplate-depth= to increase the maximum) instantiating `struct X<100>'
      template <int N> struct X { static const int value = X<N-1>::value; }; temp
 late struct X<1000>;
                                                   ^
-    test.C:2:46:   recursively required from ‘const int X<999>::value’
-    test.C:2:46:   required from ‘const int X<1000>::value’
+    test.C:2:46:   recursively required from `const int X<999>::value'
+    test.C:2:46:   required from `const int X<1000>::value'
     test.C:2:88:   required from here
 
-    test.C:2:46: error: incomplete type ‘X<100>’ used in nested name specifier
+    test.C:2:46: error: incomplete type `X<100>' used in nested name specifier
 
      * With the new [7]#pragma GCC ivdep, the user can assert that there
        are no loop-carried dependencies which would prevent concurrent
@@ -322,11 +329,11 @@ auto incr = [](auto x) { return x++; };
 // a functional object that will add two like-type objects
 auto add = [] <typename T> (T a, T b) { return a + b; };
 
-     * G++ supports unconstrained generic functions as specified by §4.1.2
-       and §5.1.1 of [16]N3889: Concepts Lite Specification. Briefly, auto
-       may be used as a type-specifier in a parameter declaration of any
-       function declarator in order to introduce an implicit function
-       template parameter, akin to generic lambdas.
+     * G++ supports unconstrained generic functions as specified by
+       S:4.1.2 and S:5.1.1 of [16]N3889: Concepts Lite Specification.
+       Briefly, auto may be used as a type-specifier in a parameter
+       declaration of any function declarator in order to introduce an
+       implicit function template parameter, akin to generic lambdas.
 
 // the following two function declarations are equivalent
 auto incr(auto x) { return x++; }
@@ -416,7 +423,7 @@ auto incr(T x) { return x++; }
        be used as argument to ISO_C_BINDING's C_LOC and as actual argument
        to another NO_ARG_CHECK dummy argument; also the other constraints
        of TYPE(*) apply. The dummy arguments should be declared as scalar
-       or assumed-size variable of type type(*) (recommended) – or of type
+       or assumed-size variable of type type(*) (recommended) - or of type
        integer, real, complex or logical. With NO_ARG_CHECK, a pointer to
        the data without further type or shape information is passed,
        similar to C's void*. Note that also TS 29113's
@@ -441,9 +448,9 @@ auto incr(T x) { return x++; }
           + Rounding on input (READ) is now handled on systems where
             strtod honours the rounding mode. (For output, rounding is
             supported since GCC 4.5.) Note that for input, the compatible
-            rounding mode is handled as nearest (i.e., for a tie, rounding
-            to an even last significant [cf. IEC 60559:1989] – while
-            compatible rounds away from zero for a tie).
+            rounding mode is handled as nearest (i.e., rounding to an even
+            least significant [cf. IEC 60559:1989] for a tie, while
+            compatible rounds away from zero in that case).
 
   Go
 
@@ -526,6 +533,12 @@ New Targets and Target Specific Improvements
        Cortex-M4 have been added.
      * A number of code generation improvements for Thumb2 to reduce code
        size when compiling for the M-profile processors.
+
+  AVR
+
+     * A new command-line option -mfract-convert-truncate has been added.
+       It allows compiler to use truncation instead of rounding towards
+       zero for fractional fixed-point types.
 
   IA-32/x86-64
 
@@ -673,20 +686,27 @@ GCC 4.9.3
    not be complete (that is, it is possible that some PRs that have been
    fixed are not listed here).
 
+GCC 4.9.4
+
+   This is the [29]list of problem reports (PRs) from GCC's bug tracking
+   system that are known to be fixed in the 4.9.4 release. This list might
+   not be complete (that is, it is possible that some PRs that have been
+   fixed are not listed here).
+
 
     For questions related to the use of GCC, please consult these web
-    pages and the [29]GCC manuals. If that fails, the
-    [30]gcc-help@gcc.gnu.org mailing list might help. Comments on these
+    pages and the [30]GCC manuals. If that fails, the
+    [31]gcc-help@gcc.gnu.org mailing list might help. Comments on these
     web pages and the development of GCC are welcome on our developer
-    list at [31]gcc@gcc.gnu.org. All of [32]our lists have public
+    list at [32]gcc@gcc.gnu.org. All of [33]our lists have public
     archives.
 
-   Copyright (C) [33]Free Software Foundation, Inc. Verbatim copying and
+   Copyright (C) [34]Free Software Foundation, Inc. Verbatim copying and
    distribution of this entire article is permitted in any medium,
    provided this notice is preserved.
 
-   These pages are [34]maintained by the GCC team. Last modified
-   2015-06-26[35].
+   These pages are [35]maintained by the GCC team. Last modified
+   2016-08-03[36].
 
 References
 
@@ -718,15 +738,17 @@ References
   26. http://openmp.org/wp/openmp-specifications/
   27. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.9.2
   28. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.9.3
-  29. https://gcc.gnu.org/onlinedocs/
-  30. mailto:gcc-help@gcc.gnu.org
-  31. mailto:gcc@gcc.gnu.org
-  32. https://gcc.gnu.org/lists.html
-  33. http://www.fsf.org/
-  34. https://gcc.gnu.org/about.html
-  35. http://validator.w3.org/check/referer
+  29. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.9.4
+  30. https://gcc.gnu.org/onlinedocs/
+  31. mailto:gcc-help@gcc.gnu.org
+  32. mailto:gcc@gcc.gnu.org
+  33. https://gcc.gnu.org/lists.html
+  34. http://www.fsf.org/
+  35. https://gcc.gnu.org/about.html
+  36. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.8/index.html
+
                              GCC 4.8 Release Series
 
    June 23, 2015
@@ -789,7 +811,7 @@ References and Acknowledgements
    provided this notice is preserved.
 
    These pages are [25]maintained by the GCC team. Last modified
-   2015-06-23[26].
+   2016-01-30[26].
 
 References
 
@@ -821,6 +843,7 @@ References
   26. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.8/changes.html
+
                              GCC 4.8 Release Series
                         Changes, New Features, and Fixes
 
@@ -949,8 +972,8 @@ New Languages and Language specific improvements
        diagnostics. Combined with the caret information, an example
        diagnostic showing these two features is:
 
-t.c:1:94: error: invalid operands to binary < (have ‘struct mystruct’ and ‘float
-’)
+t.c:1:94: error: invalid operands to binary < (have `struct mystruct' and `float
+')
  #define MYMAX(A,B)    __extension__ ({ __typeof__(A) __a = (A); __typeof__(B) _
 _b = (B); __a < __b ? __b : __a; })
 
@@ -1074,8 +1097,8 @@ int i = A().f();  // error, f() requires an lvalue object
             older versions except as noted below.
           + ABI: Some internal names (used in the assembler/object file)
             have changed for symbols declared in the specification part of
-            a module. If an affected module – or a file using it via use
-            association – is recompiled, the module and all files which
+            a module. If an affected module - or a file using it via use
+            association - is recompiled, the module and all files which
             directly use such symbols have to be recompiled as well. This
             change only affects the following kind of module symbols:
                o Procedure pointers. Note: C-interoperable function
@@ -1102,7 +1125,7 @@ int i = A().f();  // error, f() requires an lvalue object
      * The [21]-Wcompare-reals command-line option has been added. When
        this is set, warnings are issued when comparing REAL or COMPLEX
        types for equality and inequality; consider replacing a == b by
-       abs(a−b) < eps with a suitable eps. -Wcompare-reals is enabled by
+       abs(a -b) < eps with a suitable eps. -Wcompare-reals is enabled by
        -Wextra.
      * The [22]-Wtarget-lifetime command-line option has been added
        (enabled with -Wall), which warns if the pointer in a pointer
@@ -1114,7 +1137,7 @@ int i = A().f();  // error, f() requires an lvalue object
        4.0e0).
        (For Fortran source code, consider replacing the "q" in
        floating-point literals by a kind parameter (e.g. 4.0e0_qp with a
-       suitable qp). Note that – in Fortran source code – replacing "q" by
+       suitable qp). Note that - in Fortran source code - replacing "q" by
        a simple "e" is not equivalent.)
      * The GFORTRAN_TMPDIR environment variable for specifying a
        non-default directory for files opened with STATUS="SCRATCH", is
@@ -1209,8 +1232,8 @@ New Targets and Target Specific Improvements
     }
        The inline assembler in this example will generate code like
     mov r24, 8+7
-       provided c is allocated to R24 and val is allocated to R8…R15. This
-       works because the GNU assembler accepts plain register numbers
+       provided c is allocated to R24 and val is allocated to R8...R15.
+       This works because the GNU assembler accepts plain register numbers
        without register prefix.
      * Static initializers with 3-byte symbols are supported now:
     extern const __memx char foo;
@@ -1539,7 +1562,7 @@ GCC 4.8.5
    provided this notice is preserved.
 
    These pages are [43]maintained by the GCC team. Last modified
-   2015-06-23[44].
+   2016-05-28[44].
 
 References
 
@@ -1548,8 +1571,8 @@ References
    3. http://www.nongnu.org/avr-libc/
    4. https://gcc.gnu.org/PR54461
    5. https://gcc.gnu.org/gcc-4.8/porting_to.html
-   6. https://code.google.com/p/address-sanitizer/
-   7. https://code.google.com/p/data-race-test/wiki/ThreadSanitizer
+   6. https://github.com/google/sanitizers
+   7. https://code.google.com/archive/p/data-race-test/wikis/ThreadSanitizer.wiki
    8. https://lkml.org/lkml/2006/11/28/239
    9. http://gcc.gnu.org/gcc-4.8/cxx0x_status.html
   10. http://gcc.gnu.org/gcc-4.8/cxx0x_status.html
@@ -1568,12 +1591,12 @@ References
   23. https://gcc.gnu.org/onlinedocs/gfortran/TMPDIR.html
   24. https://gcc.gnu.org/wiki/Fortran2003Status
   25. https://gcc.gnu.org/wiki/TS29113Status
-  26. https://gcc.gnu.org/viewcvs/trunk/libgfortran/libgfortran.h?content-type=text/plain&view=co
+  26. https://gcc.gnu.org/viewcvs/trunk/libgfortran/libgfortran.h?content-type=text%2Fplain&view=co
   27. http://chasm-interop.sourceforge.net/
   28. https://gcc.gnu.org/wiki/avr-gcc#Fixed-Point_Support
   29. https://gcc.gnu.org/onlinedocs/gcc/Fixed-Point.html
-  30. https://gcc.gnu.org/onlinedocs/gcc/X86-Built-in-Functions.html#X86-Built-in-Functions
-  31. https://gcc.gnu.org/onlinedocs/gcc/X86-Built-in-Functions.html#X86-Built-in-Functions
+  30. https://gcc.gnu.org/onlinedocs/gcc/x86-Built-in-Functions.html
+  31. https://gcc.gnu.org/onlinedocs/gcc/x86-Built-in-Functions.html
   32. https://gcc.gnu.org/wiki/FunctionMultiVersioning
   33. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.8.1
   34. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.8.2
@@ -1589,6 +1612,7 @@ References
   44. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.7/index.html
+
                              GCC 4.7 Release Series
 
    June 12, 2014
@@ -1648,7 +1672,7 @@ References and Acknowledgements
    provided this notice is preserved.
 
    These pages are [23]maintained by the GCC team. Last modified
-   2014-06-12[24].
+   2016-01-30[24].
 
 References
 
@@ -1678,6 +1702,7 @@ References
   24. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.7/changes.html
+
                              GCC 4.7 Release Series
                         Changes, New Features, and Fixes
 
@@ -2008,7 +2033,7 @@ long double pi = 180.0_degrees;
 template <class T> using Ptr = T*;
 Ptr<int> ip;  // decltype(ip) is int*
 
-     * Thanks to Ville Voutilainen and Pedro Lamarão, G++ now implements
+     * Thanks to Ville Voutilainen and Pedro Lamarao, G++ now implements
        [13]C++11 delegating constructors.
 
 struct A {
@@ -2202,7 +2227,7 @@ New Targets and Target Specific Improvements
 
      * GCC now supports the XMEGA architecture. This requires GNU binutils
        2.22 or later.
-     * Support for the [36]named address spaces __flash, __flash1, …,
+     * Support for the [36]named address spaces __flash, __flash1, ...,
        __flash5 and __memx has been added. These address spaces locate
        read-only data in flash memory and allow reading from flash memory
        by means of ordinary C code, i.e. without the need of (inline)
@@ -2246,7 +2271,7 @@ void set_portb (uint8_t value)
        suitable to be used as operand in an I/O command. The address must
        be a constant integer known at compile time.
      * The inline assembler constraint "R" to represent integers in the
-       range −6 … 5 has been removed without replacement.
+       range -6 ... 5 has been removed without replacement.
      * Many optimizations to:
           + 64-bit integer arithmetic
           + Widening multiplication
@@ -2258,7 +2283,7 @@ void set_portb (uint8_t value)
           + If-else decision trees generated by switch instructions
           + Merging of data located in flash memory
           + New libgcc variants for devices with 8-bit wide stack pointer
-          + …
+          + ...
      * Better documentation:
           + Handling of EIND and indirect jumps on devices with more than
             128 KiB of program memory.
@@ -2469,7 +2494,7 @@ GCC 4.7.4
    provided this notice is preserved.
 
    These pages are [55]maintained by the GCC team. Last modified
-   2014-12-06[56].
+   2016-02-29[56].
 
 References
 
@@ -2498,7 +2523,7 @@ References
   23. https://gcc.gnu.org/onlinedocs/gcc-4.7.1/gfortran/Code-Gen-Options.html#index-g_t_0040code_007bfaggressive-function-elimination_007d-270
   24. https://gcc.gnu.org/onlinedocs/gcc-4.7.1/gfortran/Error-and-Warning-Options.html#index-g_t_0040code_007bWreal-q-constant_007d-149
   25. https://gcc.gnu.org/onlinedocs/gcc-4.7.1/gfortran/SELECTED_005fREAL_005fKIND.html
-  26. http://msdn.microsoft.com/en-us/library/bb787181(v=vs.85).aspx
+  26. https://msdn.microsoft.com/en-us/library/bb787181%28v=vs.85%29.aspx
   27. https://gcc.gnu.org/onlinedocs/gcc-4.7.1/gfortran/Debugging-Options.html#index-g_t_0040code_007bfno-backtrace_007d-183
   28. https://gcc.gnu.org/wiki/Fortran2003Status
   29. https://gcc.gnu.org/wiki/OOP
@@ -2507,18 +2532,18 @@ References
   32. https://gcc.gnu.org/wiki/CoarrayLib
   33. https://gcc.gnu.org/wiki/TS29113Status
   34. https://gcc.gnu.org/onlinedocs/gcc-4.7.1/gfortran/Fortran-Dialect-Options.html#index-g_t_0040code_007bstd_003d_007d_0040var_007bstd_007d-option-53
-  35. http://weekly.golang.org/doc/go1.html
+  35. https://golang.org/doc/go1
   36. https://gcc.gnu.org/onlinedocs/gcc-4.7.1/gcc/Named-Address-Spaces.html
   37. http://nongnu.org/avr-libc/
   38. https://gcc.gnu.org/PR54461
-  39. https://gcc.gnu.org/onlinedocs/gcc-4.7.1/gcc/AVR-Built_002din-Functions.html
+  39. https://gcc.gnu.org/onlinedocs/gcc-4.7.1/gcc/AVR-Built%5f002din-Functions.html
   40. https://sites.google.com/site/x32abi/
   41. http://www.dwarfstd.org/ShowIssue.php?issue=100909.1
   42. http://www.dwarfstd.org/ShowIssue.php?issue=100909.2
   43. http://www.dwarfstd.org/doc/040408.1.html
   44. http://www.dwarfstd.org/ShowIssue.php?issue=110722.1
   45. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.7.1
-  46. http://weekly.golang.org/doc/go1.html
+  46. https://golang.org/doc/go1
   47. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.7.2
   48. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.7.3
   49. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.7.4
@@ -2531,6 +2556,7 @@ References
   56. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.6/index.html
+
                              GCC 4.6 Release Series
 
    April 12, 2013
@@ -2590,7 +2616,7 @@ References and Acknowledgements
    provided this notice is preserved.
 
    These pages are [23]maintained by the GCC team. Last modified
-   2014-06-28[24].
+   2016-01-30[24].
 
 References
 
@@ -2620,6 +2646,7 @@ References
   24. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.6/changes.html
+
                              GCC 4.6 Release Series
                         Changes, New Features, and Fixes
 
@@ -2959,7 +2986,7 @@ New Languages and Language specific improvements
 
      * [12]Improved experimental support for the upcoming ISO C++
        standard, C++0x, including using constexpr and nullptr.
-     * Performance improvements to the [13]Debug Mode, thanks to François
+     * Performance improvements to the [13]Debug Mode, thanks to Franc,ois
        Dumont.
      * Atomic operations used for reference-counting are annotated so that
        they can be understood by race detectors such as Helgrind, see
@@ -3014,7 +3041,7 @@ New Languages and Language specific improvements
             allocated (if unallocated) or reallocated (if the shape or
             type parameter is different). To avoid the small performance
             penalty, you can use a(:) = ... instead of a = ... for arrays
-            and character strings – or disable the feature using -std=f95
+            and character strings - or disable the feature using -std=f95
             or -fno-realloc-lhs.
           + Deferred type parameter: For scalar allocatable and pointer
             variables the character length can be deferred.
@@ -3069,7 +3096,7 @@ New Languages and Language specific improvements
             be declared in a single PROCEDURE statement; implied-shape
             arrays are supported for named constants (PARAMETER). The
             transformational, three argument versions of BESSEL_JN and
-            BESSEL_YN were added – the elemental, two-argument version had
+            BESSEL_YN were added - the elemental, two-argument version had
             been added in GCC 4.4; note that the transformational
             functions use a recurrence algorithm.
 
@@ -3514,11 +3541,11 @@ GCC 4.6.4
    provided this notice is preserved.
 
    These pages are [29]maintained by the GCC team. Last modified
-   2014-12-06[30].
+   2016-05-28[30].
 
 References
 
-   1. http://sourceware.org/bugzilla/show_bug.cgi?id=10401
+   1. https://sourceware.org/bugzilla/show_bug.cgi?id=10401
    2. http://gcc.gnu.org/gcc-4.5/changes.html
    3. http://gcc.gnu.org/gcc-4.5/changes.html#obsoleted
    4. http://gcc.gnu.org/gcc-4.6/porting_to.html
@@ -3536,7 +3563,7 @@ References
   16. https://gcc.gnu.org/wiki/OOP
   17. https://gcc.gnu.org/wiki/Coarray
   18. https://gcc.gnu.org/onlinedocs/gfortran/Code-Gen-Options.html#index-g_t_0040code_007bfcoarray_007d-233
-  19. http://golang.org/
+  19. https://golang.org/
   20. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.6.1
   21. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.6.2
   22. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.6.3
@@ -3550,6 +3577,7 @@ References
   30. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.5/index.html
+
                              GCC 4.5 Release Series
 
    Jul 2, 2012
@@ -3609,7 +3637,7 @@ References and Acknowledgements
    provided this notice is preserved.
 
    These pages are [18]maintained by the GCC team. Last modified
-   2014-06-28[19].
+   2016-01-30[19].
 
 References
 
@@ -3634,6 +3662,7 @@ References
   19. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.5/changes.html
+
                              GCC 4.5 Release Series
                         Changes, New Features, and Fixes
 
@@ -3870,7 +3899,7 @@ New Languages and Language specific improvements
        defined ([13]DR 757).
      * Labels may now have attributes, as has been permitted for a while
        in C. This is only permitted when the label definition and the
-       attribute specifier is followed by a semicolon—i.e., the label
+       attribute specifier is followed by a semicolon--i.e., the label
        applies to an empty statement. The only useful attribute for a
        label is unused.
      * G++ now implements [14]DR 176. Previously G++ did not support using
@@ -3952,15 +3981,15 @@ vector-size: improvement = 3: call stack = 0x804842c ...
 
   Fortran
 
-     * The COMMON default padding has been changed – instead of adding the
+     * The COMMON default padding has been changed - instead of adding the
        padding before a variable it is now added afterwards, which
        increases the compatibility with other vendors and helps to obtain
        the correct output in some cases. Cf. also the -falign-commons
        option ([18]added in 4.4).
      * The -finit-real= option now also supports the value snan for
-       signalling not-a-number; to be effective, one additionally needs to
+       signaling not-a-number; to be effective, one additionally needs to
        enable trapping (e.g. via -ffpe-trap=). Note: Compile-time
-       optimizations can turn a signalling NaN into a quiet one.
+       optimizations can turn a signaling NaN into a quiet one.
      * The new option -fcheck= has been added with the options bounds,
        array-temps, do, pointer, and recursive. The bounds and array-temps
        options are equivalent to -fbounds-check and
@@ -4281,7 +4310,7 @@ GCC 4.5.4
    provided this notice is preserved.
 
    These pages are [33]maintained by the GCC team. Last modified
-   2014-12-06[34].
+   2016-05-28[34].
 
 References
 
@@ -4301,7 +4330,7 @@ References
   14. http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#176
   15. https://gcc.gnu.org/onlinedocs/libstdc++/manual/profile_mode.html
   16. https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.tr24733
-  17. http://sourceware.org/gdb/wiki/STLSupport
+  17. https://sourceware.org/gdb/wiki/STLSupport
   18. http://gcc.gnu.org/gcc-4.4/changes.html
   19. https://gcc.gnu.org/onlinedocs/gfortran/Code-Gen-Options.html
   20. https://gcc.gnu.org/onlinedocs/gfortran/Mixed-Language-Programming.html
@@ -4321,6 +4350,7 @@ References
   34. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.4/index.html
+
                              GCC 4.4 Release Series
 
    March 13, 2012
@@ -4389,7 +4419,7 @@ References and Acknowledgements
    provided this notice is preserved.
 
    These pages are [21]maintained by the GCC team. Last modified
-   2014-06-28[22].
+   2016-01-30[22].
 
 References
 
@@ -4417,6 +4447,7 @@ References
   22. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.4/changes.html
+
                              GCC 4.4 Release Series
                         Changes, New Features, and Fixes
 
@@ -5019,7 +5050,7 @@ GCC 4.4.7
    provided this notice is preserved.
 
    These pages are [24]maintained by the GCC team. Last modified
-   2014-12-06[25].
+   2016-01-30[25].
 
 References
 
@@ -5050,6 +5081,7 @@ References
   25. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.3/index.html
+
                              GCC 4.3 Release Series
 
    Jun 27, 2011
@@ -5115,7 +5147,7 @@ References and Acknowledgements
    provided this notice is preserved.
 
    These pages are [20]maintained by the GCC team. Last modified
-   2014-06-28[21].
+   2016-01-30[21].
 
 References
 
@@ -5142,6 +5174,7 @@ References
   21. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.3/changes.html
+
                              GCC 4.3 Release Series
                         Changes, New Features, and Fixes
 
@@ -5425,10 +5458,10 @@ New Languages and Language specific improvements
 
   Fortran
 
-     * Due to the fact that the [16]GMP and [17]MPFR libraries are
-       required for all languages, Fortran is no longer special in this
-       regard and is available by default.
-     * The [18]-fexternal-blas option has been added, which generates
+     * Due to the fact that the GMP and MPFR libraries are required for
+       all languages, Fortran is no longer special in this regard and is
+       available by default.
+     * The [16]-fexternal-blas option has been added, which generates
        calls to BLAS routines for intrinsic matrix operations such as
        matmul rather than using the built-in algorithms.
      * Support to give a backtrace (compiler flag -fbacktrace or
@@ -5437,16 +5470,16 @@ New Languages and Language specific improvements
        run-time error occured.
      * GNU Fortran now defines __GFORTRAN__ when it runs the C
        preprocessor (CPP).
-     * The [19]-finit-local-zero, -finit-real, -finit-integer,
+     * The [17]-finit-local-zero, -finit-real, -finit-integer,
        -finit-character, and -finit-logical options have been added, which
        can be used to initialize local variables.
-     * The intrinsic procedures [20]GAMMA and [21]LGAMMA have been added,
+     * The intrinsic procedures [18]GAMMA and [19]LGAMMA have been added,
        which calculate the Gamma function and its logarithm. Use EXTERNAL
        gamma if you want to use your own gamma function.
      * GNU Fortran now regards the backslash character as literal (as
-       required by the Fortran 2003 standard); using [22]-fbackslash GNU
+       required by the Fortran 2003 standard); using [20]-fbackslash GNU
        Fortran interprets backslashes as C-style escape characters.
-     * The [23]interpretation of binary, octal and hexadecimal (BOZ)
+     * The [21]interpretation of binary, octal and hexadecimal (BOZ)
        literal constants has been changed. Before they were always
        interpreted as integer; now they are bit-wise transferred as
        argument of INT, REAL, DBLE and CMPLX as required by the Fortran
@@ -5816,7 +5849,7 @@ Documentation improvements
 
      * Existing libstdc++ documentation has been edited and restructured
        into a single DocBook XML manual. The results can be viewed online
-       [24]here.
+       [22]here.
 
 Other significant improvements
 
@@ -5848,7 +5881,7 @@ Other significant improvements
 
 GCC 4.3.1
 
-   This is the [25]list of problem reports (PRs) from GCC's bug tracking
+   This is the [23]list of problem reports (PRs) from GCC's bug tracking
    system that are known to be fixed in the 4.3.1 release. This list might
    not be complete (that is, it is possible that some PRs that have been
    fixed are not listed here).
@@ -5874,58 +5907,58 @@ Target Specific Changes
 
 GCC 4.3.2
 
-   This is the [26]list of problem reports (PRs) from GCC's bug tracking
+   This is the [24]list of problem reports (PRs) from GCC's bug tracking
    system that are known to be fixed in the 4.3.2 release. This list might
    not be complete (that is, it is possible that some PRs that have been
    fixed are not listed here).
 
 GCC 4.3.3
 
-   This is the [27]list of problem reports (PRs) from GCC's bug tracking
+   This is the [25]list of problem reports (PRs) from GCC's bug tracking
    system that are known to be fixed in the 4.3.3 release. This list might
    not be complete (that is, it is possible that some PRs that have been
    fixed are not listed here).
 
 GCC 4.3.4
 
-   This is the [28]list of problem reports (PRs) from GCC's bug tracking
+   This is the [26]list of problem reports (PRs) from GCC's bug tracking
    system that are known to be fixed in the 4.3.4 release. This list might
    not be complete (that is, it is possible that some PRs that have been
    fixed are not listed here).
 
 GCC 4.3.5
 
-   This is the [29]list of problem reports (PRs) from GCC's bug tracking
+   This is the [27]list of problem reports (PRs) from GCC's bug tracking
    system that are known to be fixed in the 4.3.5 release. This list might
    not be complete (that is, it is possible that some PRs that have been
    fixed are not listed here).
 
 GCC 4.3.6
 
-   This is the [30]list of problem reports (PRs) from GCC's bug tracking
+   This is the [28]list of problem reports (PRs) from GCC's bug tracking
    system that are known to be fixed in the 4.3.6 release. This list might
    not be complete (that is, it is possible that some PRs that have been
    fixed are not listed here).
 
 
     For questions related to the use of GCC, please consult these web
-    pages and the [31]GCC manuals. If that fails, the
-    [32]gcc-help@gcc.gnu.org mailing list might help. Comments on these
+    pages and the [29]GCC manuals. If that fails, the
+    [30]gcc-help@gcc.gnu.org mailing list might help. Comments on these
     web pages and the development of GCC are welcome on our developer
-    list at [33]gcc@gcc.gnu.org. All of [34]our lists have public
+    list at [31]gcc@gcc.gnu.org. All of [32]our lists have public
     archives.
 
-   Copyright (C) [35]Free Software Foundation, Inc. Verbatim copying and
+   Copyright (C) [33]Free Software Foundation, Inc. Verbatim copying and
    distribution of this entire article is permitted in any medium,
    provided this notice is preserved.
 
-   These pages are [36]maintained by the GCC team. Last modified
-   2014-06-28[37].
+   These pages are [34]maintained by the GCC team. Last modified
+   2016-01-30[35].
 
 References
 
    1. http://gcc.gnu.org/gcc-4.3/changes.html#4.3.5
-   2. http://gmplib.org/
+   2. https://gmplib.org/
    3. http://www.mpfr.org/
    4. https://gcc.gnu.org/install/prerequisites.html
    5. https://gcc.gnu.org/ml/gcc-announce/2001/msg00000.html
@@ -5939,30 +5972,29 @@ References
   13. http://gcc.gnu.org/gcc-4.3/cxx0x_status.html
   14. https://gcc.gnu.org/onlinedocs/libstdc++/manual/bk01pt01ch01.html#m anual.intro.status.standard.tr1
   15. https://gcc.gnu.org/onlinedocs/libstdc++/manual/parallel_mode.html
-  16. http://gmplib.org/
-  17. http://www.mpfr.org/
-  18. https://gcc.gnu.org/onlinedocs/gfortran/Code-Gen-Options.html#Code-Gen-Options
-  19. https://gcc.gnu.org/onlinedocs/gfortran/Code-Gen-Options.html#index-g_t_0040code_007bfinit-local-zero_007d-167
-  20. https://gcc.gnu.org/onlinedocs/gcc-4.3.0/gfortran/GAMMA.html
-  21. https://gcc.gnu.org/onlinedocs/gcc-4.3.0/gfortran/LGAMMA.html
-  22. https://gcc.gnu.org/onlinedocs/gfortran/Fortran-Dialect-Options.html
-  23. https://gcc.gnu.org/onlinedocs/gfortran/BOZ-literal-constants.html
-  24. https://gcc.gnu.org/onlinedocs/libstdc++/
-  25. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.3.1
-  26. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.3.2
-  27. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.3.3
-  28. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.3.4
-  29. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.3.5
-  30. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.3.6
-  31. https://gcc.gnu.org/onlinedocs/
-  32. mailto:gcc-help@gcc.gnu.org
-  33. mailto:gcc@gcc.gnu.org
-  34. https://gcc.gnu.org/lists.html
-  35. http://www.fsf.org/
-  36. https://gcc.gnu.org/about.html
-  37. http://validator.w3.org/check/referer
+  16. https://gcc.gnu.org/onlinedocs/gfortran/Code-Gen-Options.html#Code-Gen-Options
+  17. https://gcc.gnu.org/onlinedocs/gfortran/Code-Gen-Options.html#index-g_t_0040code_007bfinit-local-zero_007d-167
+  18. https://gcc.gnu.org/onlinedocs/gcc-4.3.0/gfortran/GAMMA.html
+  19. https://gcc.gnu.org/onlinedocs/gcc-4.3.0/gfortran/LGAMMA.html
+  20. https://gcc.gnu.org/onlinedocs/gfortran/Fortran-Dialect-Options.html
+  21. https://gcc.gnu.org/onlinedocs/gfortran/BOZ-literal-constants.html
+  22. https://gcc.gnu.org/onlinedocs/libstdc++/
+  23. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.3.1
+  24. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.3.2
+  25. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.3.3
+  26. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.3.4
+  27. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.3.5
+  28. https://gcc.gnu.org/bugzilla/buglist.cgi?bug_status=RESOLVED&resolution=FIXED&target_milestone=4.3.6
+  29. https://gcc.gnu.org/onlinedocs/
+  30. mailto:gcc-help@gcc.gnu.org
+  31. mailto:gcc@gcc.gnu.org
+  32. https://gcc.gnu.org/lists.html
+  33. http://www.fsf.org/
+  34. https://gcc.gnu.org/about.html
+  35. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.2/index.html
+
                              GCC 4.2 Release Series
 
    May 19, 2008
@@ -6022,7 +6054,7 @@ References and Acknowledgements
    provided this notice is preserved.
 
    These pages are [18]maintained by the GCC team. Last modified
-   2014-06-28[19].
+   2016-01-30[19].
 
 References
 
@@ -6047,6 +6079,7 @@ References
   19. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.2/changes.html
+
                              GCC 4.2 Release Series
                         Changes, New Features, and Fixes
 
@@ -6351,7 +6384,7 @@ Other significant improvements
    provided this notice is preserved.
 
    These pages are [12]maintained by the GCC team. Last modified
-   2014-06-28[13].
+   2016-01-30[13].
 
 References
 
@@ -6370,6 +6403,7 @@ References
   13. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.1/index.html
+
                              GCC 4.1 Release Series
 
    February 13, 2007
@@ -6423,7 +6457,7 @@ References and Acknowledgements
    provided this notice is preserved.
 
    These pages are [16]maintained by the GCC team. Last modified
-   2014-06-28[17].
+   2016-01-30[17].
 
 References
 
@@ -6446,6 +6480,7 @@ References
   17. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.1/changes.html
+
                              GCC 4.1 Release Series
                         Changes, New Features, and Fixes
 
@@ -6986,7 +7021,7 @@ GCC 4.1.2
    provided this notice is preserved.
 
    These pages are [12]maintained by the GCC team. Last modified
-   2014-06-28[13].
+   2016-01-30[13].
 
 References
 
@@ -7005,6 +7040,7 @@ References
   13. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.0/index.html
+
                              GCC 4.0 Release Series
 
    January 31, 2007
@@ -7064,7 +7100,7 @@ References and Acknowledgements
    provided this notice is preserved.
 
    These pages are [18]maintained by the GCC team. Last modified
-   2014-06-28[19].
+   2016-01-30[19].
 
 References
 
@@ -7089,6 +7125,7 @@ References
   19. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-4.0/changes.html
+
                              GCC 4.0 Release Series
                         Changes, New Features, and Fixes
 
@@ -7219,7 +7256,7 @@ class __attribute__ ((visibility("hidden"))) Foo
        used outside a binary as hidden, one can completely avoid PLT
        indirection overheads during their usage by the compiler. You can
        find out more about the advantages of this at
-       [6]http://www.akkadia.org/drepper/dsohowto.pdf
+       [6]https://www.akkadia.org/drepper/dsohowto.pdf
      * The -fvisibility-inlines-hidden option has been added which marks
        all inlineable functions as having hidden ELF visibility, thus
        removing their symbol and typeinfo from the exported symbol table
@@ -7590,7 +7627,7 @@ GCC 4.0.4
    provided this notice is preserved.
 
    These pages are [21]maintained by the GCC team. Last modified
-   2014-06-28[22].
+   2016-05-27[22].
 
 References
 
@@ -7599,9 +7636,9 @@ References
    3. http://gcc.gnu.org/projects/tree-ssa/
    4. http://gcc.gnu.org/projects/tree-ssa/vectorization.html
    5. http://gcc.gnu.org/news/sms.html
-   6. http://www.akkadia.org/drepper/dsohowto.pdf
+   6. https://www.akkadia.org/drepper/dsohowto.pdf
    7. http://gcc.gnu.org/gcc-4.0/changes.html#visibility
-   8. http://mentorembedded.github.com/cxx-abi/
+   8. http://mentorembedded.github.io/cxx-abi/
    9. http://gcc.gnu.org/fortran/
   10. https://gcc.gnu.org/install/
   11. https://gcc.gnu.org/wiki/Visibility
@@ -7618,6 +7655,7 @@ References
   22. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-3.4/index.html
+
                              GCC 3.4 Release Series
 
    May 26, 2006
@@ -7688,7 +7726,7 @@ References and Acknowledgements
    provided this notice is preserved.
 
    These pages are [22]maintained by the GCC team. Last modified
-   2014-06-28[23].
+   2016-01-30[23].
 
 References
 
@@ -7717,6 +7755,7 @@ References
   23. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-3.4/changes.html
+
                              GCC 3.4 Release Series
                         Changes, New Features, and Fixes
 
@@ -9476,7 +9515,7 @@ GCC 3.4.6
    provided this notice is preserved.
 
    These pages are [417]maintained by the GCC team. Last modified
-   2014-06-28[418].
+   2016-01-30[418].
 
 References
 
@@ -9489,7 +9528,7 @@ References
    7. http://www.boost.org/
    8. https://gcc.gnu.org/PR11953
    9. https://gcc.gnu.org/PR8361
-  10. https://gcc.gnu.org/onlinedocs/gcc-3.4.3/gcc/Other-Builtins.html#Other Builtins
+  10. https://gcc.gnu.org/onlinedocs/gcc-3.4.3/gcc/Other-Builtins.html#Other%20Builtins
   11. http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_closed.html#209
   12. http://gcc.gnu.org/bugs/#cxx_rvalbind
   13. https://gcc.gnu.org/onlinedocs/gcc-3.4.3/gcc/Objective-C-Dialect-Options.html
@@ -9506,7 +9545,7 @@ References
   24. http://gcc.gnu.org/gcc-3.4/mips-abi.html
   25. http://gcc.gnu.org/gcc-3.4/powerpc-abi.html
   26. http://gcc.gnu.org/gcc-3.4/sparc-abi.html
-  27. https://gcc.gnu.org/bugzilla/buglist.cgi?short_desc_type=notregexp&short_desc=\[3\.4.*[Rr]egression&target_milestone=3.4.0&bug_status=RESOLVED&resolution=FIXED
+  27. https://gcc.gnu.org/bugzilla/buglist.cgi?short_desc_type=notregexp&short_desc=%5C%5B3%5C.4.*%5BRr%5Degression&target_milestone=3.4.0&bug_status=RESOLVED&resolution=FIXED
   28. https://gcc.gnu.org/PR10129
   29. https://gcc.gnu.org/PR14576
   30. https://gcc.gnu.org/PR14760
@@ -9900,6 +9939,7 @@ References
  418. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-3.3/index.html
+
                              GCC 3.3 Release Series
 
    May 03, 2005
@@ -9971,7 +10011,7 @@ References and Acknowledgements
    provided this notice is preserved.
 
    These pages are [21]maintained by the GCC team. Last modified
-   2014-06-28[22].
+   2016-01-30[22].
 
 References
 
@@ -9999,6 +10039,7 @@ References
   22. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-3.3/changes.html
+
                              GCC 3.3 Release Series
                         Changes, New Features, and Fixes
 
@@ -11346,7 +11387,7 @@ GCC 3.3.6
    provided this notice is preserved.
 
    These pages are [556]maintained by the GCC team. Last modified
-   2014-06-28[557].
+   2016-01-30[557].
 
 References
 
@@ -11909,6 +11950,7 @@ References
  557. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-3.2/index.html
+
                              GCC 3.2 Release Series
 
    April 25, 2003
@@ -11974,7 +12016,7 @@ References and Acknowledgements
    provided this notice is preserved.
 
    These pages are [17]maintained by the GCC team. Last modified
-   2014-06-28[18].
+   2016-01-30[18].
 
 References
 
@@ -11998,6 +12040,7 @@ References
   18. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-3.2/changes.html
+
                              GCC 3.2 Release Series
                         Changes, New Features, and Fixes
 
@@ -12597,7 +12640,7 @@ GCC 3.2
    provided this notice is preserved.
 
    These pages are [251]maintained by the GCC team. Last modified
-   2014-06-27[252].
+   2016-01-30[252].
 
 References
 
@@ -12855,6 +12898,7 @@ References
  252. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-3.1/index.html
+
                                     GCC 3.1
 
    July 27, 2002
@@ -12900,7 +12944,7 @@ http://gcc.gnu.org/gcc-3.1/index.html
    provided this notice is preserved.
 
    These pages are [14]maintained by the GCC team. Last modified
-   2014-06-28[15].
+   2016-01-30[15].
 
 References
 
@@ -12921,6 +12965,7 @@ References
   15. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-3.1/changes.html
+
                              GCC 3.1 Release Series
                         Changes, New Features, and Fixes
 
@@ -13139,7 +13184,7 @@ New Targets and Target Specific Improvements
           + For those targets that support it, -mfpmath=sse will cause the
             compiler to generate SSE/SSE2 instructions for floating point
             math instead of x87 instructions. Usually, this will lead to
-            quicker code — especially on the Pentium 4. Note that only
+            quicker code -- especially on the Pentium 4. Note that only
             scalar floating point instructions are used and GCC does not
             exploit SIMD features yet.
           + Prefetch support has been added to the Pentium III, Pentium 4,
@@ -13255,7 +13300,7 @@ Documentation improvements
    provided this notice is preserved.
 
    These pages are [18]maintained by the GCC team. Last modified
-   2014-06-28[19].
+   2016-01-30[19].
 
 References
 
@@ -13266,7 +13311,7 @@ References
    5. https://gcc.gnu.org/onlinedocs/libstdc++/faq.html
    6. https://gcc.gnu.org/onlinedocs/gcc-3.1.1/g77/News.html
    7. http://www.adacore.com/
-   8. http://www-cs-faculty.stanford.edu/~knuth/mmix.html
+   8. http://www-cs-faculty.stanford.edu/~uno/mmix.html
    9. http://www.axis.com/
   10. http://developer.axis.com/
   11. http://www.superh.com/
@@ -13280,6 +13325,7 @@ References
   19. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-3.0/index.html
+
                                    GCC 3.0.4
 
    February 20, 2002
@@ -13332,7 +13378,7 @@ Previous 3.0.x Releases
    provided this notice is preserved.
 
    These pages are [14]maintained by the GCC team. Last modified
-   2014-06-28[15].
+   2016-01-30[15].
 
 References
 
@@ -13353,6 +13399,7 @@ References
   15. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-3.0/features.html
+
                               GCC 3.0 New Features
 
 Additional changes in GCC 3.0.4
@@ -13523,7 +13570,7 @@ Other significant improvements
    provided this notice is preserved.
 
    These pages are [19]maintained by the GCC team. Last modified
-   2014-06-28[20].
+   2016-01-30[20].
 
 References
 
@@ -13549,6 +13596,7 @@ References
   20. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-3.0/caveats.html
+
                                 GCC 3.0 Caveats
 
      * -fstrict-aliasing is now part of -O2 and higher optimization
@@ -13595,7 +13643,7 @@ http://gcc.gnu.org/gcc-3.0/caveats.html
    provided this notice is preserved.
 
    These pages are [7]maintained by the GCC team. Last modified
-   2014-06-27[8].
+   2016-01-30[8].
 
 References
 
@@ -13609,6 +13657,7 @@ References
    8. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-2.95/index.html
+
                                     GCC 2.95
 
    March 16, 2001: The GNU project and the GCC developers are pleased to
@@ -13675,7 +13724,7 @@ References and Acknowledgements
    provided this notice is preserved.
 
    These pages are [15]maintained by the GCC team. Last modified
-   2014-06-28[16].
+   2016-01-30[16].
 
 References
 
@@ -13697,6 +13746,7 @@ References
   16. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-2.95/features.html
+
                              GCC 2.95 New Features
 
      * General Optimizer Improvements:
@@ -13940,7 +13990,7 @@ Additional Changes in GCC 2.95.3
    provided this notice is preserved.
 
    These pages are [22]maintained by the GCC team. Last modified
-   2014-06-28[23].
+   2016-01-30[23].
 
 References
 
@@ -13969,6 +14019,7 @@ References
   23. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/gcc-2.95/caveats.html
+
                                 GCC 2.95 Caveats
 
      * GCC 2.95 will issue an error for invalid asm statements that had
@@ -14023,7 +14074,7 @@ http://gcc.gnu.org/gcc-2.95/caveats.html
    provided this notice is preserved.
 
    These pages are [7]maintained by the GCC team. Last modified
-   2014-06-12[8].
+   2016-01-30[8].
 
 References
 
@@ -14037,6 +14088,7 @@ References
    8. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/egcs-1.1/index.html
+
                                     EGCS 1.1
 
    September 3, 1998: We are pleased to announce the release of EGCS 1.1.
@@ -14244,7 +14296,7 @@ http://gcc.gnu.org/egcs-1.1/index.html
    provided this notice is preserved.
 
    These pages are [15]maintained by the GCC team. Last modified
-   2014-06-28[16].
+   2016-01-30[16].
 
 References
 
@@ -14266,6 +14318,7 @@ References
   16. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/egcs-1.1/features.html
+
                              EGCS 1.1 new features
 
      * Integrated GNU Fortran (g77) compiler and runtime library with
@@ -14343,7 +14396,7 @@ http://gcc.gnu.org/egcs-1.1/features.html
    provided this notice is preserved.
 
    These pages are [10]maintained by the GCC team. Last modified
-   2014-06-12[11].
+   2016-01-30[11].
 
 References
 
@@ -14360,6 +14413,7 @@ References
   11. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/egcs-1.1/caveats.html
+
                                 EGCS 1.1 Caveats
 
      * EGCS has an integrated libstdc++, but does not have an integrated
@@ -14397,7 +14451,7 @@ http://gcc.gnu.org/egcs-1.1/caveats.html
    provided this notice is preserved.
 
    These pages are [6]maintained by the GCC team. Last modified
-   2014-06-12[7].
+   2016-01-30[7].
 
 References
 
@@ -14410,6 +14464,7 @@ References
    7. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/egcs-1.0/index.html
+
                                     EGCS 1.0
 
    December 3, 1997: We are pleased to announce the release of EGCS 1.0.
@@ -14593,7 +14648,7 @@ http://gcc.gnu.org/egcs-1.0/index.html
    provided this notice is preserved.
 
    These pages are [10]maintained by the GCC team. Last modified
-   2014-06-28[11].
+   2016-01-30[11].
 
 References
 
@@ -14610,6 +14665,7 @@ References
   11. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/egcs-1.0/features.html
+
                                EGCS 1.0 features
 
      * Core compiler is based on the gcc2 development tree from Aug 2,
@@ -14659,7 +14715,7 @@ http://gcc.gnu.org/egcs-1.0/features.html
    provided this notice is preserved.
 
    These pages are [8]maintained by the GCC team. Last modified
-   2014-06-12[9].
+   2016-01-30[9].
 
 References
 
@@ -14674,6 +14730,7 @@ References
    9. http://validator.w3.org/check/referer
 ======================================================================
 http://gcc.gnu.org/egcs-1.0/caveats.html
+
                                 EGCS 1.0 Caveats
 
      * EGCS has an integrated libstdc++, but does not have an integrated
@@ -14712,7 +14769,7 @@ http://gcc.gnu.org/egcs-1.0/caveats.html
    provided this notice is preserved.
 
    These pages are [6]maintained by the GCC team. Last modified
-   2014-06-12[7].
+   2016-01-30[7].
 
 References
 
