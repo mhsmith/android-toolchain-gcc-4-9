@@ -62,7 +62,8 @@ for k in $possible_real_kinds; do
       4) ctype="float" ; cplxtype="complex float" ; suffix="f" ;;
       8) ctype="double" ; cplxtype="complex double" ; suffix="" ;;
       10) ctype="long double" ; cplxtype="complex long double" ; suffix="l" ;;
-      16) if [ $long_double_kind -eq 10 ]; then
+      # Chaquopy edited next line: see https://github.com/buffer51/android-gfortran
+      16) if [ $long_double_kind -ne 16 ]; then
 	    ctype="__float128"
 	    cplxtype="_Complex float __attribute__((mode(TC)))"
 	    suffix="q"
